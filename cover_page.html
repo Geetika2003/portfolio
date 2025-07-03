@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geetika Sharma | Creative Designer</title>
+
+  <style>
+    /* Reset & Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      background: #fefefe;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #000;
+      color: white;
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+    }
+
+    .nav {
+      position: relative;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #ff4e50;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* Mobile Styling */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #111;
+        padding: 10px 20px;
+        width: 180px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        border-radius: 10px;
+      }
+
+      .nav-links.show {
+        display: flex;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+    }
+
+    /* Cover Section */
+    .cover-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 100px;
+      background: linear-gradient(to right, #f9f1f1, #fef6ff);
+      overflow: hidden;
+    }
+    .cover-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      max-width: 1300px;
+      text-align: left;
+      padding: 0 50px;
+      gap: 50px;
+    }
+    .cover-text h1 {
+      font-size: clamp(1.5rem, 4vw, 3rem);
+    }
+    .typing-effect {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+    }
+    .desc {
+      font-size: clamp(0.95rem, 2vw, 1.2rem);
+    }
+    .skills-list li {
+      font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+    }
+
+    .cover-image {
+      flex: 1 1 30%;
+      animation: zoomIn 1.8s ease;
+    }
+    .cover-image img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.5s;
+    }
+    .cover-image img:hover {
+      transform: scale(1.05);
+    }
+    .cover-text {
+      flex: 1 1 55%;
+      animation: slideInLeft 1.5s ease;
+    }
+    .fade-slide {
+      animation: fadeIn 1.5s ease;
+    }
+    .typing-effect {
+      color: #555;
+      font-weight: 600;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid #ff4e50;
+      width: fit-content;
+      animation: typing 4s steps(40, end) 1, blink 0.7s step-end infinite;
+    }
+    .desc {
+      color: #333;
+      margin: 20px 0;
+      line-height: 1.6;
+    }
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 20px 0;
+    }
+    .skills-list li {
+      margin: 6px 0;
+      color: #222;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.5s forwards;
+    }
+    .skills-list li:nth-child(1) { animation-delay: 0.3s; }
+    .skills-list li:nth-child(2) { animation-delay: 0.6s; }
+    .skills-list li:nth-child(3) { animation-delay: 0.9s; }
+    .skills-list li:nth-child(4) { animation-delay: 1.2s; }
+    .btn {
+      padding: 12px 25px;
+      background-color: #ff4e50;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #e64548;
+      transform: scale(1.05);
+    }
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    /* Project Highlights Section */
+    .project-highlights {
+      padding: 80px 50px;
+      background-color: #fff7fa;
+      text-align: center;
+    }
+    .section-title {
+      font-size: 2em;
+      margin-bottom: 40px;
+      color: #ff4e50;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: white;
+      border-radius: 15px;
+      padding: 25px 20px;
+      text-decoration: none;
+      color: #333;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+    .card-icon {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    /* Footer */
+    .footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.95em;
+    }
+
+    /* Animations */
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-100px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      0%, 100% { border-color: transparent; }
+      50% { border-color: #ff4e50; }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1 class="logo">Geetika Sharma</h1>
+    <nav class="nav">
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Cover Page -->
+  <section id="cover" class="cover-section">
+    <div class="cover-content">
+      <div class="cover-image animate-fade">
+        <img src="Untitled design (3).png" alt="Geetika Sharma" />
+      </div>
+      <div class="cover-text animate-text">
+        <h1 class="fade-slide">Hi, I'm <span class="highlight">Geetika Sharma</span></h1>
+        <h2 class="typing-effect">Creative Designer | Freelancer | B.Tech Student | Web Developer</h2>
+        <p class="desc">I specialize in creating engaging visual content, building brand identity, and transforming ideas into impactful designs that speak volumes. Whether it’s a sleek logo, social media campaign, or full-fledged branding — I bring clarity, creativity, and passion to every project.</p>
+        <ul class="skills-list">
+          <li class="fade-up">✔ Logo & Brand Identity</li>
+          <li class="fade-up">✔ UI/UX & Web Design</li>
+          <li class="fade-up">✔ Social Media Creatives</li>
+          <li class="fade-up">✔ Poster & Banner Design</li>
+        </ul>
+        <a href="projects.html" class="btn fancy-btn pulse">Explore My Work</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Highlights Section -->
+  <section class="project-highlights">
+    <h2 class="section-title">Design Showcase</h2>
+    <div class="project-grid">
+      <a href="#" class="project-card">
+        <div class="card-icon">🎉</div>
+        <h3>Festival Banners</h3>
+        <p>Vibrant and festive creatives for celebrations and cultural events.</p>
+      </a>
+      <a href="#" class="project-card">
+        <div class="card-icon">💼</div>
+        <h3>Logo & Visiting Cards</h3>
+        <p>Professional branding and identity pieces for modern businesses.</p>
+      </a>
+      <a href="#" class="project-card">
+        <div class="card-icon">💌</div>
+        <h3>Invitation Cards</h3>
+        <p>Personalized and elegant invitations for events and special moments.</p>
+      </a>
+      <a href="#" class="project-card">
+        <div class="card-icon">📢</div>
+        <h3>Organisation Posters</h3>
+        <p>Awareness and promotional posters for educational or social causes.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 @Geetika. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>

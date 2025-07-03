@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Geetika Sharma</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff7f9;
+      color: #333;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #000;
+      color: white;
+      position: fixed;
+      width: 100%;
+      z-index: 999;
+    }
+    .logo {
+      font-size: 1.8em;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 0px;
+    }
+    .nav {
+      position: relative;
+      margin-bottom: 0px;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    .nav-links li {
+      margin-left: 20px;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: #ff4e50;
+    }
+    .hamburger {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #111;
+        padding: 10px 20px;
+        border-radius: 10px;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .nav-links li {
+        margin: 10px 0;
+      }
+    }
+    main {
+      padding: 100px 30px 50px;
+      max-width: 1700px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #ff4e50;
+      margin-bottom: 40px;
+    }
+    .project-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+    .project-card p {
+      color: #666;
+    }
+    .festival-images {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .festival-images img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1 class="logo">Geetika Sharma</h1>
+    <nav class="nav">
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="cover_page.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>My Projects</h1>
+    <div class="project-section">
+      <div class="project-card" id="festival-banner">
+        <h3>Festival Banners</h3>
+        <p>Colorful and themed banners designed for Diwali, Holi, Independence Day and more cultural events.</p>
+        <div class="festival-images">
+          <img src="Untitled design.jpg" alt="Navratri Design">
+          <img src="Untitled design (1).jpg" alt="Dusshera Design">
+          <img src="Untitled design (4).png" alt="Ganesh Chaturthi Design">
+        </div>
+      </div>
+      <div class="project-card" id="logo-visitingcard">
+        <h3>Logo</h3>
+        <p>Brand identity packages including modern logo design for startups and businesses.</p>
+        <div class="festival-images">
+          <img src="AGRI-CONNECT_HUB-removebg-preview.png" alt="AGRI-CONNECT_HUB LOGO">
+          <img src="Suchi Batra (4).png" alt="SUCHI BATRA LOGO">
+          <img src="GUIDING_RAYS_TOWARDS_SUCCESS-removebg-preview.png" alt="KIRAN ACADEMY">
+        </div>
+      </div>
+      <div class="project-card" id="invitation-cards">
+        <h3>Invitation Cards</h3>
+        <p>Elegant and customized invitations for weddings, birthdays, and official ceremonies.</p>
+         <div class="festival-images">
+            <video width="100%" height="auto" controls autoplay muted loop>
+                <source src="Amit & Ankita invitation.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+            </video>
+          <img src="Reception Invite.png" alt="Reception">
+        </div>
+      </div>
+      <div class="project-card" id="organisation-posters">
+        <h3>Organisation Posters</h3>
+        <p>Awareness, promotional, and event posters designed for NGOs, educational institutes, and government campaigns.</p>
+         <div class="festival-images">
+          <img src="10 - MONTH ONLINE PREP COURSE.png" alt="kiran ACADEMY">
+          <img src="Red And Beige Bridal Makeup Services Instagram Post (1).png" alt="pooja makeovers">
+          <img src="Blue Minimalist Certificate Of Achievement (4).png" alt=" PCPTL certificate">
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 @Geetika. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("nav-links").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
